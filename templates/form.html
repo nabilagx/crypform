@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CrypForm - Formulir Aman</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>🛡️ Formulir Digital Aman</h2>
+    
+    <form method="post">
+      <label>Nama:</label>
+      <input type="text" name="name" required>
+      
+      <label>Email:</label>
+      <input type="email" name="email" required>
+      
+      <label>Pesan:</label>
+      <textarea name="message" required></textarea>
+      
+      <button type="submit">Enkripsi & Kirim</button>
+    </form>
+
+    {% if encrypted_data %}
+      <div class="output">
+        <h3>Hasil Enkripsi:</h3>
+        <textarea readonly>{{ encrypted_data }}</textarea>
+      </div>
+    {% endif %}
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="{{ url_for('decrypt') }}">
+        <button style="background-color:#007BFF; color:white; border:none; padding:10px 20px; border-radius:5px;">
+          🔓 Buka Halaman Dekripsi
+        </button>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

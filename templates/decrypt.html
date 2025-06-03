@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dekripsi Data</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>🔓 Hasil Dekripsi</h2>
+    <form method="post">
+      <label>Masukkan Ciphertext:</label>
+      <textarea name="ciphertext" required></textarea>
+      <button type="submit">Dekripsi</button>
+    </form>
+
+    {% if decrypted_data %}
+      <div class="output">
+        <h3>Data Terdekripsi:</h3>
+        <textarea readonly>{{ decrypted_data }}</textarea>
+      </div>
+    {% endif %}
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="{{ url_for('index') }}">
+        <button style="background-color:#28a745; color:white; border:none; padding:10px 20px; border-radius:5px;">
+          ⬅️ Kembali ke Form
+        </button>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
